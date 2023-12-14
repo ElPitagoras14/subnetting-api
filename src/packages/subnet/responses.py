@@ -6,8 +6,8 @@ class Network(BaseModel):
     name: str
     subnet: str
     mask: int
-    firstIp: str
-    lastIp: str
+    first_ip: str
+    last_ip: str
     broadcast: str
 
 
