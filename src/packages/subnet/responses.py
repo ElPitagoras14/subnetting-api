@@ -32,6 +32,7 @@ class SubnetInfo(BaseModel):
     subnet_info: VLSMInfo | FLSMInfo
     networks: list[Network]
     tree_str: str
+    d3_tree: dict
 
 
 class SubnetOut(SuccessResponse):
