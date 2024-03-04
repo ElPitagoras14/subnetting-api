@@ -1,0 +1,14 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run project",
+            "type": "shell",
+            "command": "python",
+            "args": ["${workspaceFolder}/src/main.py"],
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        }
+    ]
+}

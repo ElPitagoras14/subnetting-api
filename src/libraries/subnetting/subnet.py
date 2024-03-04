@@ -75,7 +75,7 @@ def host_VLSM(ip: str, mask: int, host_list: list[int]):
     )
     m = get_potential_bit_number(total_hosts)
     n = 32 - mask - m
-    if (m < 0) or (n < 0) or (total_hosts > pow(2, n)):
+    if (m < 0) or (n < 0):
         raise InsufficientHostsMaskException()
 
     initial_ip = ip

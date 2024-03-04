@@ -1,4 +1,5 @@
 from .classes import SubnettingNode, Trunk
+from .utils import add_host
 
 
 def get_data(networks: list):
@@ -16,8 +17,8 @@ def get_data(networks: list):
 def create_rec(
     node: SubnettingNode, n: int, mask: list, subnet: list, name: list
 ):
-    if n == len(mask):
-        return node, n
+    # if n == len(mask):
+    #     return node, n
 
     if node.mask == mask[n]:
         return node, n + 1
@@ -31,6 +32,16 @@ def create_rec(
             subnet,
             name,
         )
+        if n1 >= len(mask):
+            node.right = SubnettingNode(
+                node.mask + 1,
+                add_host(
+                    subnet[n],
+                    pow(2, 32 - node.mask - 1),
+                ),
+                "Free Net",
+            )
+            return node, n1 + 1
         node.right, n2 = create_rec(
             SubnettingNode(node.mask + 1, subnet[n1], name[n1]),
             n1,
